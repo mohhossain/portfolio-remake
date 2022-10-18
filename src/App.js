@@ -9,6 +9,7 @@ import { VscFiles, VscAccount } from "react-icons/vsc";
 import Explorer from "./Explorer";
 import About from "./About";
 import Tooltip from "./Tooltip";
+import TopNav from "./TopNav";
 
 function App() {
   const [isAboutClicked, setIsAboutClicked] = useState(false);
@@ -17,10 +18,12 @@ function App() {
 
   const navigate = useNavigate();
 
+  const [page, setPage] = useState("Home.js");
+
   return (
     <div className="App">
       <div className="titlebar">
-        <p>About.js</p>
+        <p>{page} — Mohammad Hossain</p>
       </div>
       {/* <SidebarMenu></SidebarMenu> */}
       <div className="nav-explorer">
@@ -28,6 +31,7 @@ function App() {
           <Link to="/projects" className="link">
             <button
               onClick={() => {
+                setPage("Projects.js");
                 setIsAboutClicked(false);
                 setIsProjectsClicked(true);
                 setIsGithubClicked(false);
@@ -40,6 +44,7 @@ function App() {
           <Link to="/github" className="link">
             <button
               onClick={() => {
+                setPage("Github.md");
                 setIsAboutClicked(false);
                 setIsProjectsClicked(false);
                 setIsGithubClicked(true);
@@ -53,6 +58,7 @@ function App() {
           <Link to="/about" className="link">
             <button
               onClick={() => {
+                setPage("About.md");
                 setIsAboutClicked(true);
                 setIsProjectsClicked(false);
                 setIsGithubClicked(false);
@@ -64,14 +70,16 @@ function App() {
             </button>
           </Link>
         </nav>
-
         <Explorer></Explorer>
-        <Routes>
-          <Route path="/" element={<></>} />
-          <Route path="about" element={<About></About>} />
-          <Route path="github" element={<h1></h1>} />
-          <Route path="projects" element={<></>} />
-        </Routes>
+        <div>
+          <TopNav></TopNav>
+          <Routes>
+            <Route path="/" element={<></>} />
+            <Route path="about" element={<About setPage={setPage}></About>} />
+            <Route path="github" element={<h1></h1>} />
+            <Route path="projects" element={<></>} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

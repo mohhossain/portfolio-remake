@@ -4,7 +4,7 @@ import ExploreLink from "./ExploreLink";
 import { VscChevronDown, VscChevronRight } from "react-icons/vsc";
 
 function Explorer() {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(true);
   const links = ["About.md", "Projects.js", "Github.js", "Contact.json"];
 
   const handleClick = () => {
