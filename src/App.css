@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&family=Encode+Sans:wght@300&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+
 .App {
   text-align: center;
   background-color: #191919;
   height: 100vh;
 }
 
+.titlebar{
+  text-align: center;
+  background-color: #181818;
+  height: 20px;
+  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.54);
+  color: white;
+}
+.titlebar p {
+  margin: 0px;
+  font-size: small;
+  vertical-align: center;
+  
+}
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -38,9 +53,13 @@
   background-color: none !important;
 }
 
+.men .tooltiptext{
+  visibility: visible;
+}
+
 .icons{
   font-size: 25px;
-  color: #c0bdbd;
+  color: #898989;
   border: none;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -48,9 +67,116 @@
 }
 
 .icons:hover{
-  color:rgb(221, 221, 221);
+  color:rgb(255, 255, 255);
 }
 
 .active{
   border-left: white solid 1;
 }
+
+.nav-explorer{
+  display: flex;
+  flex-direction: row;
+}
+
+.explorer{
+  background-color: #202020;
+  width: 140px;
+  font-family: 'Montserrat';
+  color: rgb(224, 224, 224);
+  /* padding-left: 15px; */
+  text-align: left;
+}
+
+.explorer-p{
+  padding-left: 15px;
+  font-size: 10.5px;
+}
+
+.portfolio{
+  /* font-weight:1000; */
+  font-weight: bold;
+}
+
+/* .explorer-links{
+  margin-left: 10px;
+} */
+/* .exp{
+  height: 20px;
+  padding: 0;
+} */
+.exp:hover {
+  background-color: #313131;
+}
+.exp-link{
+  text-decoration: none;
+  color: rgb(222, 222, 222);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.js-icon{
+  color: yellow;
+  margin-right: 5px;
+  font-size: 14px;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+#link{
+  margin-top:2px;
+  margin-bottom: 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+}
+
+.color{
+  color:#3597e3
+}
+
+.explorer-links{
+  border-left: rgb(150, 150, 150) solid 1px;
+  margin-left: 22px;
+}
+
+.chev-icon {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+
+
+
+
+/* Tooltip */
+
+/* .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; */
+  /* If you want dots under the hoverable text */
+/* } */
+
+/* Tooltip text */
+/* .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  margin-left: 15px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px; */
+
+  /* Position the tooltip text - see examples below! */
+  /* position: absolute;
+  z-index: 1;
+} */
+
+/* Show the tooltip text when you mouse over the tooltip container */
+/* .tooltip:hover .tooltiptext {
+  visibility: visible;
+} */
