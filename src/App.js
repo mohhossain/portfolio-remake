@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { useState } from "react";
 import "./App.css";
 // import { Sidebar } from "react-pro-sidebar";
@@ -71,8 +70,10 @@ function App() {
           </Link>
         </nav>
         <Explorer></Explorer>
-        <div>
-          <TopNav></TopNav>
+        <div style={{ width: "100vw" }}>
+          <div className="wrapper">
+            <TopNav></TopNav>
+          </div>
           <Routes>
             <Route path="/" element={<></>} />
             <Route path="about" element={<About setPage={setPage}></About>} />

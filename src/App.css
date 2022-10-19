@@ -4,34 +4,50 @@
   text-align: center;
   background-color: #191919;
   height: 100vh;
+  overflow: hidden;
 }
 
-.titlebar{
+.About{
+  width: 100%;
+  /* padding-left: 50%; */
+  color: #3597e3;
+}
+
+.titlebar {
   text-align: center;
   background-color: #181818;
   height: 25px;
   box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.54);
   color: white;
-  position:relative;
-  
+  position: relative;
+
 }
 
 .topnav{
-  padding-top: 5px;
-  padding-bottom: 5px;
+  
   background-color: #292929;
-  height: 25px;
-  width: 80vw;
-  text-align: left;
-}
+  height: 35px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border:1px solid black;
+  white-space: nowrap;
+ 
+} 
+
+
 
 .topnav-link{
   text-decoration: none;
   color: white;
+  padding-top:8px;
   padding-left: 25px;
   padding-right: 25px;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  
 }
 
 .titlebar p {
@@ -48,7 +64,7 @@
   float: left;
   flex-wrap: wrap;
   background-color: #2f2f2f;
-  height: 97vh;
+  height: 98vh;
   position:relative;
 }
 
@@ -58,28 +74,25 @@
 }
 
 .menuitems{
-  background-color: transparent !important;
-  padding-left: 16px !important;
-  padding-right: 15px !important;
+  background-color: transparent ;
+  padding-left: 16px;
+  padding-right: 15px ;
   
   border: none;
 }
 
 .activemenuitems {
-  background-color: transparent !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  background-color: transparent ;
+  padding-left: 15px ;
+  padding-right: 15px ;
   border: none;
   border-left: white solid 1px;
 }
 
 .menu-items:hover{
-  background-color: none !important;
+  background-color: none ;
 }
-/* 
-.men .tooltiptext{
-  visibility: visible;
-} */
+
 
 .icons{
   font-size: 30px;
@@ -106,7 +119,7 @@
 
 .explorer{
   background-color: #202020;
-  width: 180px;
+  width: 15rem;
   font-family: 'Montserrat';
   color: rgb(224, 224, 224);
   /* padding-left: 15px; */
@@ -122,14 +135,6 @@
   /* font-weight:1000; */
   font-weight: bold;
 }
-
-/* .explorer-links{
-  margin-left: 10px;
-} */
-/* .exp{
-  height: 20px;
-  padding: 0;
-} */
 .exp:hover {
   background-color: #313131;
 }
@@ -172,36 +177,23 @@
   cursor: pointer;
 }
 
+.active-tab{
+  background-color: #181818;
+  border-top: 2px solid white;
+}
 
-
-
-
-/* Tooltip */
-
-/* .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; */
-  /* If you want dots under the hoverable text */
-/* } */
-
-/* Tooltip text */
-/* .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  margin-left: 15px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px; */
-
-  /* Position the tooltip text - see examples below! */
-  /* position: absolute;
-  z-index: 1;
+/* .bottombar{
+  height: 30px;
+  background-color: blue;
+  justify-content: end;
 } */
 
-/* Show the tooltip text when you mouse over the tooltip container */
-/* .tooltip:hover .tooltiptext {
-  visibility: visible;
-} */
+@media only screen and (max-width: 768px) {
+  .topnav{
+    width: 85vw;
+  }
+
+  .explorer{
+    display: none;
+  }
+}
