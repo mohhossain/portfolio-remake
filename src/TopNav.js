@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { DiJavascript1 } from "react-icons/di";
+import { VscInfo, VscJson } from "react-icons/vsc";
 
 function TopNav() {
   const [activeTabs, setActiveTabs] = useState({
@@ -23,6 +25,7 @@ function TopNav() {
         to="/about"
         style={{ borderLeft: "0px" }}
       >
+        <VscInfo style={{ color: "#3597e3" }} className="js-icon" />
         About.md
       </Link>
       <Link
@@ -39,6 +42,7 @@ function TopNav() {
         }
         to="/projects"
       >
+        <DiJavascript1 className="js-icon" />
         Projects.js
       </Link>
       <Link
@@ -53,6 +57,7 @@ function TopNav() {
         className={activeTabs.github ? "topnav-link active-tab" : "topnav-link"}
         to="/github"
       >
+        <DiJavascript1 className="js-icon" />
         Github.js
       </Link>
       <Link
@@ -70,6 +75,7 @@ function TopNav() {
         to="/contact"
         style={{ borderRight: "none" }}
       >
+        <VscJson className="js-icon" />
         Contact.json
       </Link>
     </div>

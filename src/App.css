@@ -47,6 +47,7 @@
   padding-right: 25px;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  background-color: #232222;
   
 }
 
@@ -107,9 +108,9 @@
   color:rgb(255, 255, 255);
 }
 
-.active.icons{
+.active-icons{
   border-left: white solid 1;
-  colors: white;
+  color: white;
 }
 
 .nav-explorer{
