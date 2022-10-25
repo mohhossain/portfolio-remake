@@ -3,15 +3,10 @@
 .App {
   text-align: center;
   background-color: #191919;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
-.About{
-  width: 100%;
-  /* padding-left: 50%; */
-  color: #3597e3;
-}
 
 .titlebar {
   text-align: center;

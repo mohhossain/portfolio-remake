@@ -1,8 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&family=Encode+Sans:wght@300&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200&family=Source+Code+Pro&display=swap');
 
+.About{
+    overflow: scroll;
 
-.hello-world{
-    font-family: 'Source Code Pro',
-    monospace;
-    color: rgb(86, 255, 2);
 }
+
+.hello-text{
+    margin-bottom: 20px;
+}
+
+.hello-world {
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 10vw;
+    position: absolute;
+    transform: translate(15%, 50%);
+    margin-bottom: 20px;
+}
+
+.hello-text h1:nth-child(1){
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(45, 236, 185);
+    text-stroke: 4px rgb(45, 236, 185);
+}
+
+.hello-text h1:nth-child(2){
+    color: rgb(45, 236, 185);
+    animation: animate 4s infinite ease-in-out;
+}
+
+/* .hello-text h3{
+    font-family: 'Source code pro';
+    font-size: 4rem;
+    color: rgb(255, 157, 157);
+    position: absolute;
+    transform: translate(100%, 1000%);
+} */
+
+@keyframes animate {
+    0%, 100%{
+        
+        -webkit-clip-path: polygon(100% 100%, 0% 100%, 0% 71%, 4% 66%, 9% 60%, 15% 57%, 21% 56%, 27% 57%, 31% 61%, 36% 66%, 40% 71%, 46% 73%, 51% 72%, 55% 67%, 59% 62%, 64% 57%, 70% 55%, 76% 54%, 82% 55%, 87% 58%, 93% 61%, 97% 65%, 100% 69%);
+        clip-path: polygon(100% 100%, 0% 100%, 0% 71%, 4% 66%, 9% 60%, 15% 57%, 21% 56%, 27% 57%, 31% 61%, 36% 66%, 40% 71%, 46% 73%, 51% 72%, 55% 67%, 59% 62%, 64% 57%, 70% 55%, 76% 54%, 82% 55%, 87% 58%, 93% 61%, 97% 65%, 100% 69%);
+    }
+
+    50%{
+        -webkit-clip-path: polygon(100% 100%, 0% 100%, 0 44%, 4% 50%, 8% 55%, 13% 61%, 19% 65%, 26% 66%, 33% 65%, 37% 60%, 43% 54%, 46% 48%, 51% 44%, 58% 43%, 64% 45%, 69% 51%, 72% 58%, 77% 65%, 85% 68%, 92% 64%, 95% 57%, 97% 49%, 100% 43%);
+        clip-path: polygon(100% 100%, 0% 100%, 0 44%, 4% 50%, 8% 55%, 13% 61%, 19% 65%, 26% 66%, 33% 65%, 37% 60%, 43% 54%, 46% 48%, 51% 44%, 58% 43%, 64% 45%, 69% 51%, 72% 58%, 77% 65%, 85% 68%, 92% 64%, 95% 57%, 97% 49%, 100% 43%);
+    }
+}
+
+.bio{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: end;
+    height: 500px;
+    margin-top: 10%;
+}
+
+.bio h3{
+    font-size: 5vw;
+    text-align: left;
+    margin-left: 12.5%;
+    justify-content: end;
+    color: rgb(196, 245, 0);
+}
+
