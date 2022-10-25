@@ -7,6 +7,8 @@
 
 .hello-text{
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .hello-world {
@@ -15,6 +17,8 @@
     position: absolute;
     transform: translate(15%, 50%);
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .hello-text h1:nth-child(1){
@@ -64,5 +68,39 @@
     margin-left: 12.5%;
     justify-content: end;
     color: rgb(196, 245, 0);
+}
+
+@media only screen and (max-width: 768px) {
+    .hello-world{
+        font-size: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        transform: translate(0%, 0%);
+    }
+    .hello-text h1:nth-child(2) {
+        color: rgb(45, 236, 185);
+        animation: animate 4s infinite ease-in-out;
+    }
+
+    @keyframes animate {
+    
+        0%,
+        100% {
+    
+            -webkit-clip-path: polygon(100% 100%, 0% 100%, 0% 81%, 11% 73%, 20% 69%, 33% 69%, 44% 74%, 54% 80%, 65% 81%, 76% 78%, 84% 73%, 93% 68%, 100% 67%);
+            clip-path: polygon(100% 100%, 0% 100%, 0% 81%, 11% 73%, 20% 69%, 33% 69%, 44% 74%, 54% 80%, 65% 81%, 76% 78%, 84% 73%, 93% 68%, 100% 67%);
+        }
+    
+        50% {
+            -webkit-clip-path: polygon(100% 100%, 0% 100%, 0 67%, 8% 74%, 18% 79%, 30% 83%, 40% 77%, 49% 67%, 61% 62%, 74% 60%, 85% 60%, 94% 63%, 100% 71%);
+            clip-path: polygon(100% 100%, 0% 100%, 0 67%, 8% 74%, 18% 79%, 30% 83%, 40% 77%, 49% 67%, 61% 62%, 74% 60%, 85% 60%, 94% 63%, 100% 71%);
+        }
+    }
+
+
+
+    .explorer {
+        display: none;
+    }
 }
 
