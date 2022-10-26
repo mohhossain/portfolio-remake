@@ -9,6 +9,7 @@ import Explorer from "./Explorer";
 import About from "./About";
 import Tooltip from "./Tooltip";
 import TopNav from "./TopNav";
+import Product from "./Product";
 
 function App() {
   const [isAboutClicked, setIsAboutClicked] = useState(false);
@@ -17,7 +18,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  const [page, setPage] = useState("Home.js");
+  const [page, setPage] = useState("About.md");
 
   return (
     <div className="App">
@@ -70,16 +71,21 @@ function App() {
           </Link>
         </nav>
         <Explorer></Explorer>
-        <div style={{ width: "100vw" }}>
+        <div
+          className="parent-body"
+          style={{ width: "100vw", overflowY: "hidden" }}
+        >
           <div className="wrapper">
             <TopNav></TopNav>
           </div>
-          <Routes>
-            <Route path="/" element={<></>} />
-            <Route path="about" element={<About setPage={setPage}></About>} />
-            <Route path="github" element={<h1></h1>} />
-            <Route path="projects" element={<></>} />
-          </Routes>
+          <div style={{ display: "flex" }}>
+            <Routes>
+              <Route path="/" element={<About setPage={setPage}></About>} />
+              <Route path="about" element={<About setPage={setPage}></About>} />
+              <Route path="github" element={<h1></h1>} />
+              <Route path="projects" element={<Product />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </div>

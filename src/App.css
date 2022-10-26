@@ -3,10 +3,27 @@
 .App {
   text-align: center;
   background-color: #191919;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
 }
+/* 
+.About{
+  overflow: scroll;
+  height: 100vw;
+} */
 
+.parent-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  flex: 1;
+  overflow-y:auto;
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+}
 
 .titlebar {
   text-align: center;

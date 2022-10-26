@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&family=Encode+Sans:wght@300&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200&family=Source+Code+Pro&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&family=Encode+Sans:wght@300&family=Lato:wght@300&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200&family=Source+Code+Pro&display=swap');
 .About{
     overflow: scroll;
-
+    
 }
 
 .hello-text{
@@ -63,6 +62,7 @@
 }
 
 .bio h3{
+    font-family: 'Lato';
     font-size: 5vw;
     text-align: left;
     margin-left: 12.5%;
