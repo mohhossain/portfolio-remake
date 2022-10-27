@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactMarkdown from "react-markdown";
-import railsmd from "./assets/Rails.md";
-import "./App.css";
+import railsmd from "../assets/Rails.md";
 
 class Product extends Component {
   constructor(props) {

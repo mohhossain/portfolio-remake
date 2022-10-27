@@ -1,15 +1,16 @@
 import { useState } from "react";
-import "./App.css";
+import "./css/App.css";
 // import { Sidebar } from "react-pro-sidebar";
 // import SidebarMenu from "./Sidebar";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { VscFiles, VscAccount } from "react-icons/vsc";
 import Explorer from "./Explorer";
-import About from "./About";
+import About from "./components/About";
 import Tooltip from "./Tooltip";
 import TopNav from "./TopNav";
-import Product from "./Product";
+import Product from "./components/Product";
+import Github from "./components/Github";
 
 function App() {
   const [isAboutClicked, setIsAboutClicked] = useState(false);
@@ -71,18 +72,15 @@ function App() {
           </Link>
         </nav>
         <Explorer></Explorer>
-        <div
-          className="parent-body"
-          style={{ width: "100vw", overflowY: "hidden" }}
-        >
+        <div style={{ width: "100vw" }}>
           <div className="wrapper">
             <TopNav></TopNav>
           </div>
-          <div style={{ display: "flex" }}>
+          <div>
             <Routes>
               <Route path="/" element={<About setPage={setPage}></About>} />
               <Route path="about" element={<About setPage={setPage}></About>} />
-              <Route path="github" element={<h1></h1>} />
+              <Route path="github" element={<Github></Github>} />
               <Route path="projects" element={<Product />} />
             </Routes>
           </div>

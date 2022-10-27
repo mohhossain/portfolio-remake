@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import BlinkingCursor from "./BlinkingCursor";
 // import Portrait from "./assets/portrait.png";
 import Typewriter from "typewriter-effect";
-import "./About.css";
+import "../css/About.css";
 
 function About({ setPage }) {
   return (
