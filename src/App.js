@@ -11,7 +11,7 @@ import Tooltip from "./Tooltip";
 import TopNav from "./TopNav";
 import Product from "./components/Product";
 import Github from "./components/Github";
-
+import Contact from "./components/Contact";
 function App() {
   const [isAboutClicked, setIsAboutClicked] = useState(false);
   const [isProjectsClicked, setIsProjectsClicked] = useState(false);
@@ -82,6 +82,7 @@ function App() {
               <Route path="about" element={<About setPage={setPage}></About>} />
               <Route path="github" element={<Github></Github>} />
               <Route path="projects" element={<Product />} />
+              <Route path="contact" element={<Contact></Contact>} />
             </Routes>
           </div>
         </div>
