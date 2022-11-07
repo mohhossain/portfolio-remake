@@ -6,7 +6,7 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { VscFiles, VscAccount } from "react-icons/vsc";
 import Explorer from "./Explorer";
-import About from "./components/About";
+import Home from "./components/Home";
 import Tooltip from "./Tooltip";
 import TopNav from "./TopNav";
 import Product from "./components/Product";
@@ -78,8 +78,8 @@ function App() {
           </div>
           <div>
             <Routes>
-              <Route path="/" element={<About setPage={setPage}></About>} />
-              <Route path="about" element={<About setPage={setPage}></About>} />
+              <Route path="/" element={<Home setPage={setPage}></Home>} />
+              <Route path="about" element={<></>} />
               <Route path="github" element={<Github></Github>} />
               <Route path="projects" element={<Product />} />
               <Route path="contact" element={<Contact></Contact>} />

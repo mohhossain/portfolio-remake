@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import "../css/About.css";
 
-function About({ setPage }) {
+function Home({ setPage }) {
   return (
     <div className="About">
       <div className="hello-text">
@@ -17,16 +17,12 @@ function About({ setPage }) {
             onInit={(typewriter) => {
               typewriter
                 .typeString("I am ")
-                .callFunction(() => {
-                  console.log("String typed out!");
-                })
+                .callFunction(() => {})
                 .typeString("Mohammad Hossain ")
                 .deleteChars(17)
                 .typeString("a full-stack developer")
                 .pauseFor(2500)
-                .callFunction(() => {
-                  console.log("All strings were deleted");
-                })
+                .callFunction(() => {})
                 .start();
             }}
             options={{
@@ -39,4 +35,4 @@ function About({ setPage }) {
   );
 }
 
-export default About;
+export default Home;

@@ -63,11 +63,19 @@
 
 .bio h3{
     font-family: 'Lato';
+    font-weight: 500;
     font-size: 5vw;
     text-align: left;
     margin-left: 12.5%;
     justify-content: end;
-    color: rgb(196, 245, 0);
+    background: linear-gradient(90deg, rgba(255, 182, 159, 1) 0%, rgba(163, 255, 159, 1) 49%, rgba(174, 241, 255, 1) 100%);;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    color: transparent;
+    
 }
 
 @media only screen and (max-width: 768px) {
