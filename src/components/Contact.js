@@ -9,51 +9,73 @@ import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import ReCAPTCHA from "react-google-recaptcha";
 
+const recap = React.createRef();
 function Contact() {
   const form = useRef();
+  // const recap = useRef();
 
   const [status, setStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
 
-  const submit = (e) => {
-    e.preventDefault();
-    confirmAlert({
-      title: "Confirm to submit",
-      message: "Are you sure to send this email?",
-      buttons: [
-        {
-          label: "Yes",
-          onClick: () => sendEmail(),
-        },
-        {
-          label: "No",
-          onClick: () => {
-            return;
-          },
-        },
-      ],
-    });
-  };
+  // const submit = (e) => {
+  //   e.preventDefault();
+  //   recap.current.execute();
+  //   confirmAlert({
+  //     title: "Confirm to submit",
+  //     message: "Are you sure to send this email?",
+  //     buttons: [
+  //       {
+  //         label: "Yes",
+  //         onClick: () => sendEmail(),
+  //       },
+  //       {
+  //         label: "No",
+  //         onClick: () => {
+  //           return;
+  //         },
+  //       },
+  //     ],
+  //   });
+  // };
 
   const sendEmail = () => {
+    recap.current.execute();
     setIsLoading(true);
-    emailjs
-      .sendForm(
-        process.env.REACT_APP_SERVICE_KEY,
-        process.env.REACT_APP_TEMPLATE_KEY,
-        form.current,
-        process.env.REACT_APP_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          setIsLoading(false);
-          console.log(result.text);
-          setStatus(result);
-        },
-        (error) => {
-          console.log(error.text);
+
+    if (captchaToken) {
+      fetch(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_CAP_SECRET_KEY}&response=${captchaToken}`,
+        {
+          method: "POST",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
         }
-      );
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        });
+    }
+
+    // emailjs
+    //   .sendForm(
+    //     process.env.REACT_APP_SERVICE_KEY,
+    //     process.env.REACT_APP_TEMPLATE_KEY,
+    //     form.current,
+    //     process.env.REACT_APP_PUBLIC_KEY
+    //   )
+    //   .then(
+    //     (result) => {
+    //       setIsLoading(false);
+    //       console.log(result.text);
+    //       setStatus(result);
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
     form.current.reset();
 
     setTimeout(() => {
@@ -62,20 +84,20 @@ function Contact() {
   };
 
   function onChange(value) {
+    setCaptchaToken(value);
     console.log("Captcha value:", value);
   }
 
-  console.log(status);
-
   return (
     <div className="contact-container">
-      {/* <label>{`{`}</label> */}
-
       <ReCAPTCHA
+        ref={recap}
+        size="invisible"
+        theme="dark"
         sitekey={process.env.REACT_APP_CAP_SITE_KEY}
         onChange={onChange}
       />
-
+      {/* <label>{`{`}</label> */}
       {isLoading ? (
         <div>
           <Player
@@ -96,7 +118,7 @@ function Contact() {
           ></Player>
         </div>
       ) : (
-        <form className="form" ref={form} onSubmit={submit}>
+        <form className="form" ref={form} onSubmit={sendEmail}>
           <h2>{`{`}</h2>
 
           <label>"NAME" :</label>
