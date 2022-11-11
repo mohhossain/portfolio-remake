@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ReactTerminal } from "react-terminal";
 
 function About() {
+  const terminal = useRef();
   const commands = {
     whoami: "jackharper",
     cd: (directory) => `changed path to ${directory}`,
   };
+
+  useEffect(() => {
+    terminal.current.focus();
+  }, []);
   return (
     <div>
       <ReactTerminal
+        ref={terminal}
         commands={commands}
+        enableInput={true}
         themes={{
           mycustomtheme: {
             themeBGColor: "#272B36",
