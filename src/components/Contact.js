@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import "../css/Contact.css";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
@@ -16,7 +16,7 @@ function Contact() {
 
   const [status, setStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState(null);
+  const [captchaToken, setCaptchaToken] = useState();
 
   // const submit = (e) => {
   //   e.preventDefault();
@@ -39,26 +39,11 @@ function Contact() {
   //   });
   // };
 
-  const sendEmail = () => {
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current);
+
     recap.current.execute();
-    setIsLoading(true);
-
-    if (captchaToken) {
-      fetch(
-        `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_CAP_SECRET_KEY}&response=${captchaToken}`,
-        {
-          method: "POST",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-        });
-    }
-
     // emailjs
     //   .sendForm(
     //     process.env.REACT_APP_SERVICE_KEY,
@@ -83,9 +68,55 @@ function Contact() {
     }, 4000);
   };
 
+  // useEffect(() => {
+  //   fetch(
+  //     `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_CAP_SECRET_KEY}&response=${captchaToken}`,
+  //     {
+  //       method: "POST",
+  //       headers: {
+  //         "Access-Control-Allow-Origin": "*",
+  //       },
+  //     }
+  //   )
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //     });
+  // }, [captchaToken]);
+
   function onChange(value) {
     setCaptchaToken(value);
+    console.log(form.current);
     console.log("Captcha value:", value);
+    fetch(`http://127.0.0.1:3000/verify?token=${value}`, {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        emailjs
+          .sendForm(
+            process.env.REACT_APP_SERVICE_KEY,
+            process.env.REACT_APP_TEMPLATE_KEY,
+            form.current,
+            process.env.REACT_APP_PUBLIC_KEY
+          )
+          .then(setIsLoading(true))
+          .then(
+            (result) => {
+              setIsLoading(false);
+              console.log(result.text);
+              setStatus(result);
+
+              setTimeout(() => {
+                setStatus();
+              }, 4000);
+            },
+            (error) => {
+              console.log(error.text);
+            }
+          );
+      });
   }
 
   return (
@@ -104,9 +135,10 @@ function Contact() {
             className="globe"
             autoplay
             loop
-            src="https://assets4.lottiefiles.com/packages/lf20_ztxhxdwa.json"
+            src="https://assets6.lottiefiles.com/packages/lf20_n5icqxkw.json"
             style={{ height: "300px", width: "300px", color: "blue" }}
           ></Player>
+          <h3 className="verify">Verifying if you are a human...</h3>
         </div>
       ) : status?.text === "OK" ? (
         <div>
@@ -116,6 +148,10 @@ function Contact() {
             src="https://assets4.lottiefiles.com/packages/lf20_wc1axoqt.json"
             style={{ height: "300px", width: "300px", color: "blue" }}
           ></Player>
+          <h3 className="verify">Thank you for reaching out to me.</h3>
+          <h3 className="verify">
+            I will get back to you as soon as possible.
+          </h3>
         </div>
       ) : (
         <form className="form" ref={form} onSubmit={sendEmail}>

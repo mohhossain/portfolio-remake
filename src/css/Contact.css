@@ -49,7 +49,10 @@
   color: rgb(166, 166, 166);
   text-align: left;
 }
-
+.verify{
+  font-family: 'lato';
+  color: rgb(208, 255, 21);
+}
 .send{
   margin-top: 15px;
   cursor: pointer;
