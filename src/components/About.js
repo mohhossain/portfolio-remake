@@ -12,9 +12,8 @@ function About() {
     terminal.current.focus();
   }, []);
   return (
-    <div>
+    <div ref={terminal}>
       <ReactTerminal
-        ref={terminal}
         commands={commands}
         enableInput={true}
         themes={{
