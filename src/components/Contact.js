@@ -30,7 +30,7 @@ function Contact() {
   function onChange(value) {
     console.log(form.current);
     console.log("Captcha value:", value);
-    fetch(`https://portfolio-backend-mbat.onrender.com/?token=${value}`, {
+    fetch(`https://portfolio-backend-mbat.onrender.com/verify?token=${value}`, {
       method: "POST",
     })
       .then((response) => response.json())
