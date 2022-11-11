@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { TerminalContextProvider } from "react-terminal";
 
 // import { ProSidebarProvider } from "react-pro-sidebar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <App />
+    <TerminalContextProvider>
+      <App />
+    </TerminalContextProvider>
   </BrowserRouter>
 );
 

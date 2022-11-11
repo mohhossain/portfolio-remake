@@ -1,11 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import React, { useRef, useState } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import "../css/Contact.css";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { AiFillMail } from "react-icons/ai";
 import { MdArticle } from "react-icons/md";
 import emailjs from "@emailjs/browser";
-import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -16,51 +15,11 @@ function Contact() {
 
   const [status, setStatus] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState();
-
-  // const submit = (e) => {
-  //   e.preventDefault();
-  //   recap.current.execute();
-  //   confirmAlert({
-  //     title: "Confirm to submit",
-  //     message: "Are you sure to send this email?",
-  //     buttons: [
-  //       {
-  //         label: "Yes",
-  //         onClick: () => sendEmail(),
-  //       },
-  //       {
-  //         label: "No",
-  //         onClick: () => {
-  //           return;
-  //         },
-  //       },
-  //     ],
-  //   });
-  // };
 
   const sendEmail = (e) => {
     e.preventDefault();
     console.log(form.current);
-
     recap.current.execute();
-    // emailjs
-    //   .sendForm(
-    //     process.env.REACT_APP_SERVICE_KEY,
-    //     process.env.REACT_APP_TEMPLATE_KEY,
-    //     form.current,
-    //     process.env.REACT_APP_PUBLIC_KEY
-    //   )
-    //   .then(
-    //     (result) => {
-    //       setIsLoading(false);
-    //       console.log(result.text);
-    //       setStatus(result);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   );
     form.current.reset();
 
     setTimeout(() => {
@@ -68,24 +27,7 @@ function Contact() {
     }, 4000);
   };
 
-  // useEffect(() => {
-  //   fetch(
-  //     `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_CAP_SECRET_KEY}&response=${captchaToken}`,
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         "Access-Control-Allow-Origin": "*",
-  //       },
-  //     }
-  //   )
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //     });
-  // }, [captchaToken]);
-
   function onChange(value) {
-    setCaptchaToken(value);
     console.log(form.current);
     console.log("Captcha value:", value);
     fetch(`http://127.0.0.1:3000/verify?token=${value}`, {

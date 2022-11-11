@@ -12,6 +12,7 @@ import TopNav from "./TopNav";
 import Product from "./components/Product";
 import Github from "./components/Github";
 import Contact from "./components/Contact";
+import About from "./components/About";
 function App() {
   const [isAboutClicked, setIsAboutClicked] = useState(false);
   const [isProjectsClicked, setIsProjectsClicked] = useState(false);
@@ -79,7 +80,7 @@ function App() {
           <div>
             <Routes>
               <Route path="/" element={<Home setPage={setPage}></Home>} />
-              <Route path="about" element={<></>} />
+              <Route path="about" element={<About></About>} />
               <Route path="github" element={<Github></Github>} />
               <Route path="projects" element={<Product />} />
               <Route path="contact" element={<Contact></Contact>} />
