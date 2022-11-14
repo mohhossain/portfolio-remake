@@ -20,7 +20,6 @@ function Contact() {
     e.preventDefault();
     console.log(form.current);
     recap.current.execute();
-    form.current.reset();
 
     setTimeout(() => {
       setStatus();
@@ -28,7 +27,8 @@ function Contact() {
   };
 
   function onChange(value) {
-    console.log(form.current);
+    const formVal = form.current;
+    console.log(formVal.user_name);
     console.log("Captcha value:", value);
     fetch(`https://portfolio-backend-mbat.onrender.com/verify?token=${value}`, {
       method: "POST",
@@ -40,7 +40,7 @@ function Contact() {
           .sendForm(
             process.env.REACT_APP_SERVICE_KEY,
             process.env.REACT_APP_TEMPLATE_KEY,
-            form.current,
+            formVal,
             process.env.REACT_APP_PUBLIC_KEY
           )
           .then(setIsLoading(true))
@@ -53,6 +53,8 @@ function Contact() {
               setTimeout(() => {
                 setStatus();
               }, 4000);
+
+              form.current.reset();
             },
             (error) => {
               console.log(error.text);
