@@ -1,12 +1,23 @@
 import React, { useEffect, useRef } from "react";
+import { Navigate } from "react-router-dom";
 import { ReactTerminal } from "react-terminal";
 
 function About() {
   const terminal = useRef();
   const commands = {
-    whoami: "jackharper",
-    cd: (directory) => `changed path to ${directory}`,
+    whoami: "Mohammad Hossain",
+    help: "contact\nprojects\nposts\ngithub",
+    contact: () => {
+      contact();
+    },
   };
+
+  const contact = () => {
+    Navigate("/contact");
+  };
+
+  const intro =
+    "Hello!! My name is Mohammad Hossain based in New York. I build applications for the web and mobile.\nType in 'help' to view available commands\n";
 
   useEffect(() => {
     terminal.current.focus();
@@ -15,6 +26,7 @@ function About() {
     <div ref={terminal}>
       <ReactTerminal
         commands={commands}
+        welcomeMessage={intro}
         enableInput={true}
         themes={{
           mycustomtheme: {
