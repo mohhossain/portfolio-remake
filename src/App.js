@@ -79,7 +79,7 @@ function App() {
           </div>
           <div>
             <Routes>
-              <Route path="/" element={<Home setPage={setPage}></Home>} />
+              <Route path="/" element={<About></About>} />
               <Route path="about" element={<About></About>} />
               <Route path="github" element={<Github></Github>} />
               <Route path="projects" element={<Product />} />

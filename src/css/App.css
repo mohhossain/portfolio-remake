@@ -210,6 +210,10 @@
   .explorer{
     display: none;
   }
+
+  .sidebar{
+    display: none;
+  }
 }
 
 

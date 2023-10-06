@@ -103,7 +103,8 @@ function Contact() {
 
           <label>"NAME" :</label>
           <input type="text" name="user_name" required={true}></input>
-          <label>"EMAIL" :</label>
+              <label>"EMAIL" :</label>
+              <input name="host_email"></input>
           <input type="email" name="user_email" required={true}></input>
           <label>"SUBJECT" :</label>
           <input type="text" name="subject" required={true}></input>
