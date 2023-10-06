@@ -1,29 +1,24 @@
-import React, { Component } from "react";
-import ReactMarkdown from "react-markdown";
-import railsmd from "../assets/Rails.md";
+import ProjectCard from "./ProjectCard";
 
-class Product extends Component {
-  constructor(props) {
-    super(props);
+const projects = [
+  {
+    name: "Parallel Social (aka Momenel)",
+    description:
+      "Privacy first social media mobile app, that do not track you. Built with React native, Express, and Supabase.",
+  },
 
-    this.state = { rails: null };
-  }
+  {
+    name: "Base2",
+    description: "A modern interface for the classic stackoverflow community. ",
+  },
+];
 
-  componentWillMount() {
-    fetch(railsmd)
-      .then((response) => response.text())
-      .then((text) => {
-        this.setState({ rails: text });
-      });
-  }
-
-  render() {
-    return (
-      <div className="content">
-        <ReactMarkdown children={this.state.rails} />
-      </div>
-    );
-  }
+function Product() {
+  return (
+    <div>
+      <ProjectCard></ProjectCard>
+    </div>
+  );
 }
 
 export default Product;
