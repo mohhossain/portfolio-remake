@@ -216,6 +216,84 @@
   }
 }
 
+.project-page h1{
+  font-size: 60px;
+  font-family: 'Encode Sans SC', sans-serif;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.project-container{
+  /* margin: 100px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.project-card{
+  background-color: #c91111;
+  color: white;
+  width: 300px;
+  height: 250px;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 2px 8px 1px rgba(81, 65, 65, 0.54);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card:hover{
+  background-color: #b00f0f;
+}
+
+.project-card p{
+  font-size: 17px;
+  font-family: 'Encode Sans SC', sans-serif;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.project-card h2{
+  font-size: 25px;
+  font-family: 'Encode Sans SC', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.project-card button{
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 15px;
+  font-family: 'Encode Sans SC', sans-serif;
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 100px;
+}
+
+.project-card button:hover{
+  background-color: white;
+  color: #c91111;
+}
+
+
 
 
 
