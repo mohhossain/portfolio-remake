@@ -2,12 +2,10 @@ function ProjectCard({ project }) {
   return (
     <div className="project-card">
       <div className="card-body">
-        <h2 className="card-title">Project Name</h2>
-        <p className="card-text">
-          Social Media App. Built with React, Redux, and Firebase.
-        </p>
+        <h2 className="card-title">{project.name}</h2>
+        <p className="card-text">{project.description}</p>
 
-        <button>View</button>
+        <button onClick={() => window.open(project.link)}>View</button>
       </div>
     </div>
   );
