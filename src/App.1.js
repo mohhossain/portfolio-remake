@@ -1,7 +1,4 @@
 import { useState } from "react";
-import "./css/App.css";
-// import { Sidebar } from "react-pro-sidebar";
-// import SidebarMenu from "./Sidebar";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { VscFiles, VscAccount } from "react-icons/vsc";
@@ -11,9 +8,8 @@ import Product from "./components/Product";
 import Github from "./components/Github";
 import Contact from "./components/Contact";
 import About from "./components/About";
-import Error from "./components/Error";
-import Blogs from "./components/Blogs";
-function App() {
+
+export function App() {
   const [isAboutClicked, setIsAboutClicked] = useState(false);
   const [isProjectsClicked, setIsProjectsClicked] = useState(false);
   const [isGithubClicked, setIsGithubClicked] = useState(false);
@@ -84,9 +80,6 @@ function App() {
               <Route path="github" element={<Github></Github>} />
               <Route path="projects" element={<Product />} />
               <Route path="contact" element={<Contact></Contact>} />
-              <Route path="blogs" element={<Blogs />} />
-              {/* error route */}
-              <Route path="*" element={<Error />} />
             </Routes>
           </div>
         </div>
@@ -94,5 +87,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -6,6 +6,7 @@ import { VscInfo, VscJson } from "react-icons/vsc";
 function TopNav() {
   const [activeTabs, setActiveTabs] = useState({
     about: true,
+    blogs: false,
     projects: false,
     github: false,
     contact: false,
@@ -44,6 +45,10 @@ function TopNav() {
       >
         <DiJavascript1 className="js-icon" />
         Projects.js
+      </Link>
+      <Link className="topnav-link" to="/blogs">
+        <DiJavascript1 className="js-icon" />
+        Blogs.js
       </Link>
       <Link
         onClick={() => {
