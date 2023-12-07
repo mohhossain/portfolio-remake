@@ -108,13 +108,11 @@ function Contact({ setPage }) {
           <label>"NAME" :</label>
           <input type="text" name="user_name" required={true}></input>
           <label>"EMAIL" :</label>
-          <input name="host_email"></input>
           <input type="email" name="user_email" required={true}></input>
           <label>"SUBJECT" :</label>
           <input type="text" name="subject" required={true}></input>
           <label>"WHY ARE YOU REACHING OUT FOR?" :</label>
           <textarea type="text" name="message" required={true}></textarea>
-
           <input className="send" type="submit" value="Send email" />
 
           <h2>{`}`}</h2>

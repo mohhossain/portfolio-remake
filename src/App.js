@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./css/App.css";
 // import { Sidebar } from "react-pro-sidebar";
 // import SidebarMenu from "./Sidebar";
@@ -18,6 +18,16 @@ import Blogs from "./components/Blogs";
 import Sidebar from "./Sidebar";
 function App() {
   const [page, setPage] = useState("About.md");
+
+  useEffect(() => {
+    fetch(`https://portfolio-backend-mbat.onrender.com/greet`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      });
+  }, []);
 
   return (
     <div className="App">
