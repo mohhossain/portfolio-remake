@@ -169,6 +169,14 @@
   vertical-align: bottom;
 }
 
+.py-icon {
+  color: #4B8BBE;
+  margin-right: 7px;
+  font-size: 18px;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
 #link{
   margin-top:2px;
   margin-bottom: 2px;
@@ -445,5 +453,19 @@
   }
 }
 
+
+.git-container{
+  /* margin: 100px; */
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 

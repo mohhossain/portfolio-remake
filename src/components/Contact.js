@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import "../css/Contact.css";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
@@ -9,7 +9,11 @@ import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import ReCAPTCHA from "react-google-recaptcha";
 
 const recap = React.createRef();
-function Contact() {
+
+function Contact({ setPage }) {
+  useEffect(() => {
+    setPage("Contact.json");
+  }, []);
   const form = useRef();
   // const recap = useRef();
 
@@ -103,8 +107,8 @@ function Contact() {
 
           <label>"NAME" :</label>
           <input type="text" name="user_name" required={true}></input>
-              <label>"EMAIL" :</label>
-              <input name="host_email"></input>
+          <label>"EMAIL" :</label>
+          <input name="host_email"></input>
           <input type="email" name="user_email" required={true}></input>
           <label>"SUBJECT" :</label>
           <input type="text" name="subject" required={true}></input>

@@ -1,39 +1,84 @@
-import { Sidebar, Menu, MenuItem, useProSidebar } from 'react-pro-sidebar';
-import { FaGithub } from "react-icons/fa"; 
+import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 import { VscFiles, VscAccount } from "react-icons/vsc";
 
-
-
 function SidebarMenu() {
-  const { collapseSidebar } = useProSidebar();
+  const [isAboutClicked, setIsAboutClicked] = useState(false);
+  const [isProjectsClicked, setIsProjectsClicked] = useState(false);
+  const [isGithubClicked, setIsGithubClicked] = useState(false);
+  const [isContactClicked, setIsContactClicked] = useState(false);
+
+  const navigate = useNavigate();
+
+  const [page, setPage] = useState("About.md");
 
   return (
-    <div style={{ display: 'flex', height: '100%' }}>
-      <Sidebar className='sidebar' defaultCollapsed={true}  backgroundColor='rgb(45, 66, 99)' >
-        <Menu >
-          <button className='menuitems'>
-            <FaGithub className='icons'/>
+    <div style={{ display: "flex", height: "100%" }}>
+      <nav className="sidebar">
+        <Link to="/projects" className="link">
+          <button
+            onClick={() => {
+              setPage("Projects.js");
+              setIsAboutClicked(false);
+              setIsContactClicked(false);
+              setIsProjectsClicked(true);
+              setIsGithubClicked(false);
+            }}
+            className={isProjectsClicked ? "activemenuitems" : "menuitems"}
+          >
+            <VscFiles className="icons" />
           </button>
-          
-          <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'end'}}>
-            <button className='menuitems'>
-            <VscFiles className='icons'/>
+        </Link>
+        <Link to="/github" className="link">
+          <button
+            onClick={() => {
+              setPage("Github.md");
+              setIsAboutClicked(false);
+              setIsProjectsClicked(false);
+              setIsContactClicked(false);
+              setIsGithubClicked(true);
+            }}
+            className={isGithubClicked ? "activemenuitems" : "menuitems"}
+          >
+            <FaGithub className="icons" />
           </button>
-            <button className='menuitems'>
-            <VscAccount className='icons'/>
-          </button>
+        </Link>
 
-          </div>
-          
-          {/* <MenuItem disabled={true}>
-            <FaGithub className='icons'/>
-          </MenuItem>
-          <MenuItem disabled={true}> </MenuItem>
-          <MenuItem disabled={true}> </MenuItem> */}
-        </Menu>
-      </Sidebar>
-      
-      
+        <Link to="/contact" className="link">
+          <button
+            onClick={() => {
+              setPage("Contact.json");
+              setIsAboutClicked(false);
+              setIsProjectsClicked(false);
+              setIsGithubClicked(false);
+              setIsContactClicked(true);
+            }}
+            className={isContactClicked ? "activemenuitems" : "menuitems"}
+          >
+            <MdOutlineEmail className="icons" />
+          </button>
+        </Link>
+
+        <Link to="/about" className="link">
+          <button
+            onClick={() => {
+              setPage("About.md");
+              setIsAboutClicked(true);
+              setIsProjectsClicked(false);
+              setIsContactClicked(false);
+              setIsGithubClicked(false);
+              navigate("/https://github.com/mohhossain");
+            }}
+            className={isAboutClicked ? "activemenuitems" : "menuitems"}
+          >
+            <VscAccount className="icons" />
+          </button>
+        </Link>
+      </nav>
     </div>
   );
 }

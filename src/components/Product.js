@@ -1,7 +1,11 @@
 import ProjectCard from "./ProjectCard";
 import projects from "../assets/projects.js";
+import React, { useEffect } from "react";
 
-function Product() {
+function Product({ setPage }) {
+  useEffect(() => {
+    setPage("Projects.js");
+  }, []);
   return (
     <div className="project-page">
       <h1>Checkout my projects!</h1>

@@ -5,7 +5,13 @@ import { VscChevronDown, VscChevronRight } from "react-icons/vsc";
 
 function Explorer() {
   const [isClicked, setIsClicked] = useState(true);
-  const links = ["About.md", "Projects.js", "Github.js", "Contact.json"];
+  const links = [
+    "About.md",
+    "Projects.js",
+    "Blogs.py",
+    "Github.js",
+    "Contact.json",
+  ];
 
   const handleClick = () => {
     setIsClicked(!isClicked);

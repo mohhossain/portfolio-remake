@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { DiJavascript1 } from "react-icons/di";
 import { VscInfo, VscJson } from "react-icons/vsc";
+import { FaPython } from "react-icons/fa";
 
 function TopNav() {
   const [activeTabs, setActiveTabs] = useState({
@@ -46,8 +47,21 @@ function TopNav() {
         <DiJavascript1 className="js-icon" />
         Projects.js
       </Link>
-      <Link className="topnav-link" to="/blogs">
-        <DiJavascript1 className="js-icon" />
+      <Link
+        onClick={() => {
+          setActiveTabs({
+            about: false,
+            projects: false,
+            github: false,
+            contact: false,
+            blogs: true,
+          });
+        }}
+        // className="topnav-link"
+        className={activeTabs.blogs ? "topnav-link active-tab" : "topnav-link"}
+        to="/blogs"
+      >
+        <FaPython className="py-icon" />
         Blogs.js
       </Link>
       <Link

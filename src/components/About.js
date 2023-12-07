@@ -1,5 +1,9 @@
 import "../css/About.css";
-function About() {
+import React, { useEffect } from "react";
+function About({ setPage }) {
+  useEffect(() => {
+    setPage("About.md");
+  }, []);
   return (
     <div className="about">
       <div className="bio">

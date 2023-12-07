@@ -1,7 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Blogs() {
+function Blogs({ setPage }) {
+  useEffect(() => {
+    setPage("Blogs.py");
+  }, []);
+  //   setPage("Blogs");
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     fetch("https://dev.to/api/articles?username=mohhossain", {})

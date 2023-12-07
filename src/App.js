@@ -1,10 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./css/App.css";
 // import { Sidebar } from "react-pro-sidebar";
 // import SidebarMenu from "./Sidebar";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { VscFiles, VscAccount } from "react-icons/vsc";
+import { MdOutlineEmail } from "react-icons/md";
+
 import Explorer from "./Explorer";
 import TopNav from "./TopNav";
 import Product from "./components/Product";
@@ -13,13 +15,8 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error";
 import Blogs from "./components/Blogs";
+import Sidebar from "./Sidebar";
 function App() {
-  const [isAboutClicked, setIsAboutClicked] = useState(false);
-  const [isProjectsClicked, setIsProjectsClicked] = useState(false);
-  const [isGithubClicked, setIsGithubClicked] = useState(false);
-
-  const navigate = useNavigate();
-
   const [page, setPage] = useState("About.md");
 
   return (
@@ -29,62 +26,26 @@ function App() {
       </div>
       {/* <SidebarMenu></SidebarMenu> */}
       <div className="nav-explorer">
-        <nav className="sidebar">
-          <Link to="/projects" className="link">
-            <button
-              onClick={() => {
-                setPage("Projects.js");
-                setIsAboutClicked(false);
-                setIsProjectsClicked(true);
-                setIsGithubClicked(false);
-              }}
-              className={isProjectsClicked ? "activemenuitems" : "menuitems"}
-            >
-              <VscFiles className="icons" />
-            </button>
-          </Link>
-          <Link to="/github" className="link">
-            <button
-              onClick={() => {
-                setPage("Github.md");
-                setIsAboutClicked(false);
-                setIsProjectsClicked(false);
-                setIsGithubClicked(true);
-              }}
-              className={isGithubClicked ? "activemenuitems" : "menuitems"}
-            >
-              <FaGithub className="icons" />
-            </button>
-          </Link>
-
-          <Link to="/about" className="link">
-            <button
-              onClick={() => {
-                setPage("About.md");
-                setIsAboutClicked(true);
-                setIsProjectsClicked(false);
-                setIsGithubClicked(false);
-                navigate.to("https://github.com/mohhossain");
-              }}
-              className={isAboutClicked ? "activemenuitems" : "menuitems"}
-            >
-              <VscAccount className="icons" />
-            </button>
-          </Link>
-        </nav>
+        <Sidebar />
         <Explorer></Explorer>
         <div style={{ width: "100vw" }}>
           <div className="wrapper">
-            <TopNav></TopNav>
+            <TopNav />
           </div>
           <div>
             <Routes>
-              <Route path="/" element={<About></About>} />
-              <Route path="about" element={<About></About>} />
-              <Route path="github" element={<Github></Github>} />
-              <Route path="projects" element={<Product />} />
-              <Route path="contact" element={<Contact></Contact>} />
-              <Route path="blogs" element={<Blogs />} />
+              <Route path="/" element={<About setPage={setPage}></About>} />
+              <Route path="about" element={<About setPage={setPage}></About>} />
+              <Route
+                path="github"
+                element={<Github setPage={setPage}></Github>}
+              />
+              <Route path="projects" element={<Product setPage={setPage} />} />
+              <Route
+                path="contact"
+                element={<Contact setPage={setPage}></Contact>}
+              />
+              <Route path="blogs" element={<Blogs setPage={setPage} />} />
               {/* error route */}
               <Route path="*" element={<Error />} />
             </Routes>
