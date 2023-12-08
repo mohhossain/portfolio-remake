@@ -11,13 +11,15 @@ function GithubProfile() {
     <div>
       <div className="profile-section">
         <div className="dp-name">
-          <div className="dp">
-            <img
-              className="dp-image"
-              src={portrait}
-              height={350}
-              style={{ overflow: "hidden" }}
-            ></img>
+          <div className="dp-container">
+            <div className="dp">
+              <img
+                className="dp-image"
+                src={portrait}
+                height={350}
+                style={{ overflow: "hidden" }}
+              ></img>
+            </div>
           </div>
 
           <div className="username">
@@ -26,7 +28,16 @@ function GithubProfile() {
           </div>
         </div>
 
-        <button className="follow-button" style={{ width: "100%" }}>
+        <button
+          className="follow-button"
+          style={{ width: "100%" }}
+          onClick={() => {
+            window.open(
+              "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fmohhossain",
+              "_blank"
+            );
+          }}
+        >
           Follow
         </button>
 

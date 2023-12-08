@@ -95,8 +95,8 @@
     width: 70vw;
     display: flex;
     flex-direction: column;
-    margin-left: -40px;
-    margin-right: 20px;
+    /* margin-left: -40px;
+    margin-right: 20px; */
     /* background: rgb(55, 119, 66);
     background: linear-gradient(86deg, rgba(55, 119, 66, 1) 0%, rgba(0, 62, 56, 0.9178265056022409) 56%, rgba(3, 67, 70, 1) 100%); */
   }

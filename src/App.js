@@ -32,7 +32,16 @@ function App() {
   return (
     <div className="App">
       <div className="titlebar">
+        <div className="titlebar-left">
+          <button className="titlebar-button" id="close-button">
+            {/* <span className="icon icon-cancel icon-text"></span> */}
+          </button>
+          <button className="titlebar-button" id="minimize-button"></button>
+        </div>
+
         <p>{page} — Mohammad Hossain</p>
+
+        <div className="titlebar-right"></div>
       </div>
       {/* <SidebarMenu></SidebarMenu> */}
       <div className="nav-explorer">

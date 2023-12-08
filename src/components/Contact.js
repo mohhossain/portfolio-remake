@@ -6,9 +6,6 @@ import { AiFillMail } from "react-icons/ai";
 import { MdArticle } from "react-icons/md";
 import emailjs from "@emailjs/browser";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
-import ReCAPTCHA from "react-google-recaptcha";
-
-const recap = React.createRef();
 
 function Contact({ setPage }) {
   useEffect(() => {
@@ -23,59 +20,50 @@ function Contact({ setPage }) {
   const sendEmail = (e) => {
     e.preventDefault();
     console.log(form.current);
-    recap.current.execute();
+    // recap.current.execute();
+    sendmail();
 
     setTimeout(() => {
       setStatus();
     }, 4000);
   };
 
-  function onChange(value) {
+  function sendmail() {
     const formVal = form.current;
-    console.log(formVal.user_name);
-    console.log("Captcha value:", value);
-    fetch(`https://portfolio-backend-mbat.onrender.com/verify?token=${value}`, {
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        emailjs
-          .sendForm(
-            process.env.REACT_APP_SERVICE_KEY,
-            process.env.REACT_APP_TEMPLATE_KEY,
-            formVal,
-            process.env.REACT_APP_PUBLIC_KEY
-          )
-          .then(setIsLoading(true))
-          .then(
-            (result) => {
-              setIsLoading(false);
-              console.log(result.text);
-              setStatus(result);
+    setIsLoading(true);
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_KEY,
+        process.env.REACT_APP_TEMPLATE_KEY,
+        formVal,
+        process.env.REACT_APP_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          setIsLoading(false);
+          console.log(result.text);
+          setStatus(result);
+          setTimeout(() => {
+            setStatus();
+          }, 4000);
 
-              setTimeout(() => {
-                setStatus();
-              }, 4000);
-
-              form.current.reset();
-            },
-            (error) => {
-              console.log(error.text);
-            }
-          );
-      });
+          form.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   }
 
   return (
     <div className="contact-container">
-      <ReCAPTCHA
+      {/* <ReCAPTCHA
         ref={recap}
         size="invisible"
         theme="dark"
         sitekey={process.env.REACT_APP_CAP_SITE_KEY}
         onChange={onChange}
-      />
+      /> */}
       {/* <label>{`{`}</label> */}
       {isLoading ? (
         <div>

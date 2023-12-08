@@ -5,9 +5,15 @@
     
     background-color: #0D1117;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     font-family: 'Lato';
-    min-height: 100vh;
+    /* min-height: 100vh; */
     overflow: scroll;
+    min-height: 94vh;
 }
 
 .container{
@@ -20,6 +26,15 @@
     overflow: scroll;
 
 }
+
+.dp-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
 .dp{
     /* width: 200px; */
     height: 18vw;
@@ -28,12 +43,33 @@
     border-radius: 50%;
     border: 1.5px solid rgb(56, 56, 56);
     justify-content: center;
-}
+    align-items: center;
+
+    transition: all 0.5s ease-in-out;}
 
 .dp-image{
     /* width: 400px; */
     height: 20vw;
     margin: 5px 0 0 0; 
+
+        transition: all 0.5s ease-in-out;
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .dp{
+        height: 50vw;
+        width: 50vw;
+    transition: all 0.5s ease-in-out;
+    /* animation: ease 2s linear infinite;
+     */
+    }
+
+    .dp-image{
+        height: 52vw;
+    /* animation: ease 2s linear infinite; */
+    transition: all 0.5s ease-in-out;
+    }
 }
 
 .username{
@@ -139,12 +175,8 @@
     display: inline-block;
 }
 
-.dp-name{
 
-}
-
-
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .dp-name{
         display: flex;
         flex-direction: row;
@@ -164,4 +196,4 @@
     .repo-section{
         width: 100%;
     }
-}
+} */

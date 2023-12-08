@@ -36,7 +36,53 @@
   color: white;
   position: sticky;
 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
 }
+
+.titlebar-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10px;
+
+}
+
+.titlebar-button{
+  /* background-color: transparent; */
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  /* make round */
+  border-radius: 50%;
+  padding: 6px;
+  /* margin-top: 2px; */
+  margin-right: 10px;
+}
+
+#close-button{
+  background-color: #cd3e4a;
+}
+
+#minimize-button{
+  background-color: rgb(31, 245, 38);
+}
+
+,titlebar-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+  width: 15px;
+}
+
+
+
+
 
 .topnav{
   
@@ -82,6 +128,7 @@
   background-color: #2f2f2f;
   min-height: 98vh;
   position:relative;
+  height: 100%;
 }
 
 .link{
