@@ -224,6 +224,23 @@
   vertical-align: bottom;
 }
 
+.rb-icon {
+  /* ruby color */
+  color: #CC342D;
+  margin-right: 7px;
+  font-size: 18px;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+.react-icon {
+  /* ruby color */
+  color: cyan;
+  margin-right: 7px;
+  font-size: 18px;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
 #link{
   margin-top:2px;
   margin-bottom: 2px;
@@ -515,7 +532,6 @@
   padding-right: 10px;
 }
 .photo-page {
-  background-color: rgb(40, 40, 40);
   display: flex;
   flex-direction: column;
   justify-content: center;

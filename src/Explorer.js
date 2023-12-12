@@ -9,7 +9,8 @@ function Explorer() {
     "About.md",
     "Projects.js",
     "Blogs.py",
-    "Github.js",
+    "Photos.rb",
+    "Github.jsx",
     "Contact.json",
   ];
 

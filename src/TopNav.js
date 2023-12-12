@@ -3,12 +3,15 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { DiJavascript1 } from "react-icons/di";
 import { VscInfo, VscJson } from "react-icons/vsc";
 import { FaPython } from "react-icons/fa";
+import { DiRuby } from "react-icons/di";
+import { FaReact } from "react-icons/fa";
 
 function TopNav() {
   const [activeTabs, setActiveTabs] = useState({
     about: true,
     blogs: false,
     projects: false,
+    photos: false,
     github: false,
     contact: false,
   });
@@ -62,7 +65,23 @@ function TopNav() {
         to="/blogs"
       >
         <FaPython className="py-icon" />
-        Blogs.js
+        Blogs.py
+      </Link>
+      <Link
+        onClick={() => {
+          setActiveTabs({
+            about: false,
+            projects: false,
+            github: false,
+            photos: true,
+            contact: false,
+          });
+        }}
+        className={activeTabs.photos ? "topnav-link active-tab" : "topnav-link"}
+        to="/photos"
+      >
+        <DiRuby className="rb-icon" />
+        Photos.rb
       </Link>
       <Link
         onClick={() => {
@@ -76,8 +95,8 @@ function TopNav() {
         className={activeTabs.github ? "topnav-link active-tab" : "topnav-link"}
         to="/github"
       >
-        <DiJavascript1 className="js-icon" />
-        Github.js
+        <FaReact className="react-icon" />
+        Github.jsx
       </Link>
       <Link
         onClick={() => {

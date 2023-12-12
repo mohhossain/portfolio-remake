@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { DiJavascript1 } from "react-icons/di";
 import { VscInfo, VscJson } from "react-icons/vsc";
 import { FaPython } from "react-icons/fa";
+import { DiRuby } from "react-icons/di";
+import { FaReact } from "react-icons/fa";
 
 function ExploreLink({ title, setPage }) {
   let linkTo = "/";
@@ -15,6 +17,8 @@ function ExploreLink({ title, setPage }) {
     linkTo = "/blogs";
   } else if (title === "Github.js") {
     linkTo = "/github";
+  } else if (title === "Photos.rb") {
+    linkTo = "/photos";
   } else {
     linkTo = "/contact";
   }
@@ -35,6 +39,13 @@ function ExploreLink({ title, setPage }) {
                 style={{ marginTop: "0px" }}
                 className="py-icon"
               ></FaPython>
+            ) : title === "Photos.rb" ? (
+              <DiRuby style={{ marginTop: "0px" }} className="rb-icon"></DiRuby>
+            ) : title === "Github.jsx" ? (
+              <FaReact
+                style={{ marginTop: "0px" }}
+                className="react-icon"
+              ></FaReact>
             ) : (
               <DiJavascript1
                 style={{ marginTop: "0px" }}

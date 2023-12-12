@@ -32,6 +32,7 @@ function Photos({ setPage }) {
           width: photo.width,
           height: photo.height,
           caption: photo.description,
+          link: photo.links.html,
           //   height: photo.height,
         };
         return imageObject;
