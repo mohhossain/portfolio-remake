@@ -6,7 +6,7 @@ function Error() {
       <h1>404</h1>
       <h2>
         I am pretty sure I did not create a page for this route. But here is a
-        of a cute cat:
+        cute cat:
       </h2>
       <img src="https://cataas.com/cat/gif" alt="cute cat" />
     </div>
