@@ -16,6 +16,7 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Blogs from "./components/Blogs";
 import Sidebar from "./Sidebar";
+import Photos from "./components/Photos";
 function App() {
   const [page, setPage] = useState("About.md");
 
@@ -65,6 +66,8 @@ function App() {
                 element={<Contact setPage={setPage}></Contact>}
               />
               <Route path="blogs" element={<Blogs setPage={setPage} />} />
+
+              <Route path="photos" element={<Photos setPage={setPage} />} />
               {/* error route */}
               <Route path="*" element={<Error />} />
             </Routes>
